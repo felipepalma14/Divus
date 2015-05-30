@@ -46,4 +46,10 @@ public class Pessoa {
 
 		return outra.getCpf() == this.cpf;
 	}
+	
+	@Override
+	public String toString() {
+		// TODO Auto-generated method stub
+		return "nome: " + this.getNome() + " CPF: " + this.getCpf();
+	}	
 }

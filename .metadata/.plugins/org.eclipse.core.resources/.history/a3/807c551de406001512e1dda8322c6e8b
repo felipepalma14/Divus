@@ -1,0 +1,10 @@
+package br.com.divus.aj3.colletions;
+
+public class LinkedHashSetTeste {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+	}
+
+}

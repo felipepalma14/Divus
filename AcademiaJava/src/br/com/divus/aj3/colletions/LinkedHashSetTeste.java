@@ -1,0 +1,37 @@
+package br.com.divus.aj3.colletions;
+
+import java.util.Iterator;
+import java.util.LinkedHashSet;
+import java.util.Set;
+
+import br.com.divus.aj3.regex.modelo.Pessoa;
+
+public class LinkedHashSetTeste {
+
+	public static void main(String[] args) {
+		Pessoa p1 = new Pessoa("Felicia", "111");
+		Pessoa p2 = new Pessoa("Maria", "123");
+		Pessoa p3 = new Pessoa("Carlos", "222");
+		Pessoa p4 = new Pessoa("Zulu", "000");
+		Set<Pessoa> pessoas = new LinkedHashSet<>();
+		pessoas.add(p1);
+		pessoas.add(p2);
+		pessoas.add(p3);
+		pessoas.add(p4);
+		for (Pessoa pessoa : pessoas) {
+			System.out.println(pessoa);
+		}
+		Iterator<Pessoa> ite = pessoas.iterator();
+		while (ite.hasNext()) {
+			Pessoa pAux = ite.next();
+			if (pAux.equals(p2)) {
+				ite.remove();
+			}
+		}
+		System.out.println("--------------------------------");
+		for (Pessoa pessoa : pessoas) {
+			System.out.println(pessoa);
+		}
+
+	}
+}
