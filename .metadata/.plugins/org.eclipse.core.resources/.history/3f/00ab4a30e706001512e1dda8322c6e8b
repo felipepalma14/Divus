@@ -1,23 +1,13 @@
 package br.com.divus.aj3.regex.modelo;
 
-public class Pessoa implements Comparable<Pessoa> {
+public class Pessoa {
 	private String nome;
 	private String cpf;
-	private Double salario;
-
-
 
 	public Pessoa(String nome, String cpf) {
 		super();
 		this.nome = nome;
 		this.cpf = cpf;
-	}
-	
-	public Pessoa(String nome, String cpf, double salario) {
-		super();
-		this.nome = nome;
-		this.cpf = cpf;
-		this.salario = salario;
 	}
 
 	public String getNome() {
@@ -34,14 +24,6 @@ public class Pessoa implements Comparable<Pessoa> {
 
 	public void setCpf(String cpf) {
 		this.cpf = cpf;
-	}
-	
-	public Double getSalario() {
-		return salario;
-	}
-
-	public void setSalario(Double salario) {
-		this.salario = salario;
 	}
 
 	@Override
@@ -68,12 +50,6 @@ public class Pessoa implements Comparable<Pessoa> {
 	@Override
 	public String toString() {
 		// TODO Auto-generated method stub
-		return "Salario: "+ this.getSalario() +" nome: " + this.getNome() + " CPF: " + this.getCpf();
+		return "nome: " + this.getNome() + " CPF: " + this.getCpf();
 	}	
-	
-	@Override
-	public int compareTo(Pessoa o) {
-		
-		return this.nome.compareTo(o.getNome());
-	}
 }

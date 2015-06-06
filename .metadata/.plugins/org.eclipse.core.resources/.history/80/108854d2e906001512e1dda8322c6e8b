@@ -36,11 +36,11 @@ public class Pessoa implements Comparable<Pessoa> {
 		this.cpf = cpf;
 	}
 	
-	public Double getSalario() {
+	public double getSalario() {
 		return salario;
 	}
 
-	public void setSalario(Double salario) {
+	public void setSalario(double salario) {
 		this.salario = salario;
 	}
 
@@ -68,7 +68,7 @@ public class Pessoa implements Comparable<Pessoa> {
 	@Override
 	public String toString() {
 		// TODO Auto-generated method stub
-		return "Salario: "+ this.getSalario() +" nome: " + this.getNome() + " CPF: " + this.getCpf();
+		return "nome: " + this.getNome() + " CPF: " + this.getCpf();
 	}	
 	
 	@Override

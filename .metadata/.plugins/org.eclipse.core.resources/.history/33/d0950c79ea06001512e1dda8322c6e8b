@@ -1,0 +1,27 @@
+package br.com.divus.aj3.colletions;
+
+import java.util.Comparator;
+
+import br.com.divus.aj3.regex.modelo.Pessoa;
+
+class PessoaComparatorSalario implements Comparator<Pessoa> {
+
+	@Override
+	public int compare(Pessoa o1, Pessoa o2) {
+		return o1.getSalario().compareTo(o2.getSalario());
+	}
+
+}
+
+public class TesteTreeSetPessoaComComparator {
+	public static void main(String[] args) {
+		Pessoa p1 = new Pessoa("Felicia", "111", 1500);
+		Pessoa p2 = new Pessoa("Maria", "123", 1000);
+		Pessoa p3 = new Pessoa("Carlos", "222", 4500);
+		Set<Pessoa> pessoas = new TreeSet<Pessoa>(new PessoaComparatorSalario());
+		pessoas.add(p1);
+		pessoas.add(p2);
+		pessoas.add(p3);
+		System.out.println(pessoas);
+	}
+}

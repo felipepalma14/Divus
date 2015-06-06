@@ -1,0 +1,19 @@
+package br.com.divus.aj3.colletions;
+
+import br.com.divus.aj3.regex.modelo.Pessoa;
+
+
+
+public class TesteTreeSetPessoa {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		Pessoa p1 = new Pessoa("Felicia", "111");
+		Pessoa p2 = new Pessoa("Maria", "222");
+		Pessoa p3 = new Pessoa("Felipe","333");
+		
+		
+		
+	}
+
+}
