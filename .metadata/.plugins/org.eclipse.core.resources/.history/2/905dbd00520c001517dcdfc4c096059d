@@ -1,0 +1,15 @@
+package br.com.divus.aj3.colletions.map;
+
+public class TesteMap {
+
+	public static void main(String[] args) {
+		
+		
+		Disciplina d = new Disciplina(1, "Java");
+		Professor kaka = new Professor("Katrina", "111");
+		
+		kaka.setDiscipliana(disciplina);
+
+	}
+
+}

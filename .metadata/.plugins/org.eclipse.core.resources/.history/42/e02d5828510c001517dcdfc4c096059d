@@ -1,0 +1,11 @@
+package br.com.divus.aj3.colletions.map;
+
+public class Professor {
+	
+	private String nome;
+	private String matricula;
+	
+	
+	
+
+}

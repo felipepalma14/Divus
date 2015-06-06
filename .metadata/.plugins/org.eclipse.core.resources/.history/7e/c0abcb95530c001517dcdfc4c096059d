@@ -1,0 +1,36 @@
+package br.com.divus.aj3.colletions.map;
+
+import java.util.HashMap;
+import java.util.Map;
+public class TesteMap {
+
+	public static void main(String[] args) {
+		
+		
+		Disciplina java = new Disciplina(1, "Java");
+		Professor kaka = new Professor("Katrina", "111");
+		
+		kaka.setDisciplina(java);
+		
+		
+		Professor jana = new Professor("Janaina", "222");
+		jana.setDisciplina(java);
+		
+		Map<String,Professor> turmaProfessor = new HashMap<>();
+		
+		turmaProfessor.put("Turma-1", kaka);
+		turmaProfessor.put("Turma-2", jana);
+		
+		System.out.println(turmaProfessor);
+		
+		
+		System.out.println(turmaProfessor.get("Turma-1"));
+		
+		//turmaProfessor.keyset() -- retorna um obj tipo set
+		for(String key: turmaProfessor.keySet()){
+			System.out.println("Professores");
+			System.out.println(turmaProfessor.get(key));
+		}
+	}
+
+}
