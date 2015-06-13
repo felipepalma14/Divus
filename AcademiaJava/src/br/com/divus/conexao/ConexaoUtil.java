@@ -2,7 +2,9 @@ package br.com.divus.conexao;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
 
 public class ConexaoUtil {
 
@@ -31,6 +33,25 @@ public class ConexaoUtil {
 		}
 	}
 
+	public static void close(Connection conn,Statement stmt){
+		try {
+			stmt.close();
+			close(conn);
+		} catch (SQLException e) {
+			System.out.println("Não foi possivel fechar o statement");
+			e.printStackTrace();
+		}
+		
+	}
 	
+	public static void close(Connection conn, Statement stmt, ResultSet result){
+		try {
+			result.close();
+			close(conn,stmt);
+		} catch (SQLException e) {
+			System.out.println("Nao foi possivel fechar o ResultSet");
+			e.printStackTrace();
+		}
+	}
 
 }

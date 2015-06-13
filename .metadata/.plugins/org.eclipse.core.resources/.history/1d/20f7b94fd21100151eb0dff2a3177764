@@ -1,0 +1,17 @@
+package br.com.divus.dao;
+
+import java.sql.Connection;
+import java.util.List;
+
+import br.com.divus.conexao.ConexaoUtil;
+import br.com.divus.model.Cliente;
+
+public class ClienteDAO {
+	
+	public List<Cliente> listarClientes(){
+		Connection conn = ConexaoUtil.getConexao();
+		return null;
+		
+	}
+
+}

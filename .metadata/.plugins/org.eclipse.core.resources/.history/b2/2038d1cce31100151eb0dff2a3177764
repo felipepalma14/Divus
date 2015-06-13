@@ -1,0 +1,125 @@
+package br.com.divus.dao;
+
+import java.sql.Connection;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.ArrayList;
+import java.util.List;
+
+import br.com.divus.conexao.ConexaoUtil;
+import br.com.divus.model.Cliente;
+
+public class ClienteDAO {
+	
+	/*
+	 * Se for retornar dados, utilizar o resultaSet
+	 * criar sQL
+	 * criar conexao
+	 * criar um statement a partir da conexao
+	 * executar o SQL retornando um resultset
+	 * percorrer o resultset utilizando while
+	 * pegar as colunas e colocar dentro de um objeto 
+	 */
+	
+	public boolean inserir(Cliente cliente){
+		String sql = "insert into cliente values(null, '"+ cliente.getNome()+"','"
+				+ cliente.getCpf()+"')";
+		Connection conn = ConexaoUtil.getConexao();
+		Statement stmt = null;
+		int resultado = 0;
+		try {
+			stmt = conn.createStatement();
+			resultado = stmt.executeUpdate(sql);// retorna quantidades de linhas afetadas, por isso vé verificado no retorno
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		return resultado > 0; // verifica se houve atualizacao/inclusao de dados
+		
+		
+	}
+	
+	
+	public List<Cliente> listarClientes(){
+		Connection conn = ConexaoUtil.getConexao();
+		Statement stmt = null;
+		ResultSet resultado = null;
+		List<Cliente> clientes = new ArrayList<>();
+		
+		String sql = "select * from cliente";
+		try {
+			stmt = conn.createStatement();
+			resultado = stmt.executeQuery(sql);
+			
+			while(resultado.next()){
+				Cliente cliente = new Cliente();
+				
+				cliente.setId(resultado.getLong("id"));
+				cliente.setNome(resultado.getString("nome"));
+				cliente.setCpf(resultado.getString("cpf"));
+				
+				/*
+				 * String nome = re.getString("nome");
+				 * Cliente cliente = new Cliente(nome);
+				 * clientes.add(cliente);
+				 */
+				
+				clientes.add(cliente);
+				
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}finally{
+			ConexaoUtil.close(conn,stmt,resultado);
+		}
+		return clientes;
+		
+	}
+	
+	public List<Cliente> buscarPorNome(String nome){
+		Connection conn = ConexaoUtil.getConexao();
+		Statement stmt = null;
+		ResultSet resultado = null;
+		List<Cliente> clientes = new ArrayList<>();
+		
+		String sql = "select * from cliente where nome like '%"+nome+"%'";
+		
+		try {
+			stmt = conn.createStatement();
+			resultado = stmt.executeQuery(sql);
+			
+			while(resultado.next()){
+				Cliente cliente = new Cliente();
+				
+				cliente.setId(resultado.getLong("id"));
+				cliente.setNome(resultado.getString("nome"));
+				cliente.setCpf(resultado.getString("cpf"));
+				
+				/*
+				 * String nome = re.getString("nome");
+				 * Cliente cliente = new Cliente(nome);
+				 * clientes.add(cliente);
+				 */
+				
+				clientes.add(cliente);
+				
+			}
+			
+			if (clientes.isEmpty()){
+				System.out.println("Nao foi encontrado");
+			}
+			
+		} catch (Exception e) {
+			
+			e.printStackTrace();
+		}finally{
+			ConexaoUtil.close(conn,stmt,resultado);
+		}
+		
+		return clientes;
+
+	}
+
+}

@@ -1,0 +1,8 @@
+package br.com.divus.testes;
+
+public class TesteListarCliente {
+	public static void main(String[] args) {
+		ClienteDAO
+	}
+
+}

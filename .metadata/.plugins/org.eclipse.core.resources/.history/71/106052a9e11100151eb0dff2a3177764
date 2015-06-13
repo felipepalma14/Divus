@@ -1,0 +1,19 @@
+package br.com.divus.testes;
+
+import java.util.List;
+
+import br.com.divus.dao.ClienteDAO;
+import br.com.divus.model.Cliente;
+
+public class TesteListarCliente {
+	public static void main(String[] args) {
+		ClienteDAO dao = new ClienteDAO();
+		
+		//List<Cliente> clientes = dao.listarClientes();
+		List<Cliente> clientes = dao.buscarPorNome("lol");
+		for (Cliente cliente : clientes) {
+			System.out.println(cliente);
+		}
+	}
+
+}
