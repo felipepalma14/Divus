@@ -39,6 +39,7 @@ public class ClienteDAO {
 			ppstmt.setString(1, cliente.getNome());
 			ppstmt.setString(2, cliente.getNome());
 			resultado = ppstmt.executeUpdate();// nao precisa colocar sql p/ ppstmt
+			
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			System.out.println("Nao foi possivel inserir os dados");
