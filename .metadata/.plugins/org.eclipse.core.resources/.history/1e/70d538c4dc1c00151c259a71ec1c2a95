@@ -1,0 +1,34 @@
+package br.com.divus.aj4.swing;
+
+import java.awt.event.KeyEvent;
+
+import javax.swing.ImageIcon;
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+
+public class OlaMundoSwing extends JFrame {
+	
+	public OlaMundoSwing(){
+		setTitle("Minha primeira janela top na balada");
+		setSize(250,250);
+		setVisible(true);
+		setDefaultCloseOperation(EXIT_ON_CLOSE);
+		JLabel label = new JLabel("Nome Completo");
+		JButton btnSalvar = new JButton("Salvar");
+		
+		Icon salvarIcon = new ImageIcon('/C:/User/LAB101/Pictures/save.png');
+		btnSalvar.setMnemonic(KeyEvent.VK_S); // Alt + S
+		btnSalvar.
+		add(label);
+		add(btnSalvar);
+		setVisible(true);
+	}
+	//Start a aplicação
+	public static void main(String[] args) {
+		// main deve ser externo as classes frames
+		
+		OlaMundoSwing tela = new OlaMundoSwing();
+	}
+
+}

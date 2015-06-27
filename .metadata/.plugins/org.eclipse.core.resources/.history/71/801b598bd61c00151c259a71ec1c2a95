@@ -1,0 +1,64 @@
+package br.com.divus.generics;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import br.com.divus.model.AbstractEntity;
+import br.com.divus.model.Aluno;
+import br.com.divus.model.Cliente;
+
+public class TesteGerenerics {
+	// Trabalha com performance
+	// Evita generalizações
+	
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		
+		// Usando a interface para criar o variavel do Tipo de Referencia Ige
+		IGerenericDAO<Cliente> daoCliente = new ClienteDAOArquivo();
+		
+		IGerenericDAO<Aluno> daoAluno = new AlunoDAO();
+		
+		
+		Cliente cliente = new Cliente(2L,"Elder Granja","111.111.111-11");
+		
+		daoCliente.salvar(cliente);
+		
+		Aluno marcia = new Aluno(2L, "Marcia");
+		Aluno joao = new Aluno(3L, "Joao");
+		
+		daoAluno.salvar(marcia);
+		daoAluno.salvar(joao);
+		
+	
+		List<Aluno> alunos = new ArrayList<>();
+		
+		//alunos.add(marcia);
+		//alunos.add(joao);
+		
+		for (Aluno aluno2 : alunos) {
+			daoAluno.salvar(aluno2);
+			
+		}
+	
+		imprimir(alunos);
+
+	}
+	
+	public static void imprimir(List<?> lista) {
+		for(Object object : lista){
+			System.out.println(object);
+			
+		}
+		
+	}
+	
+	public static void salvarEmBatch(List<? extends AbstractEntity> lista,
+			IGerenericDAO dao){
+		for (AbstractEntity entity : lista) {
+			dao.salvar(entity);
+			
+		}
+	}
+
+}

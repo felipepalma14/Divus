@@ -1,0 +1,62 @@
+package br.com.divus.aj4.swing;
+
+import java.awt.FlowLayout;
+import java.awt.GridLayout;
+
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.JTextField;
+
+public class TesteLayout extends JFrame {
+	
+	public TesteLayout(){
+		setTitle("Teste com Layout");
+		setSize(300,100);
+		setDefaultCloseOperation(EXIT_ON_CLOSE);
+		JPanel panel = montarPainelFormulario();//montarPainelBotoes();
+		add(panel);
+		
+		setLocationRelativeTo(null); // centralizar launch
+		setVisible(true);
+	}
+	
+	public JPanel montarPainelBotoes(){
+		JPanel panel = new JPanel();
+		FlowLayout flow = new FlowLayout(FlowLayout.CENTER);//centralizar no layout 
+		panel.setLayout(flow);
+		//JButton btnSalvar = new JButton("Salvar");
+		//JButton btnCancelar = new JButton("Cancelar");
+		
+		panel.add(new JButton("Salvar"));
+		panel.add(new JButton("Cancelar"));
+		
+		return panel;
+	}
+	
+	public JPanel montarPainelFormulario(){
+		JPanel panel = new JPanel();
+		GridLayout gridLayout = new GridLayout(3,2);
+		panel.setLayout(gridLayout);
+		
+		panel.add(new JLabel("Nome"));
+		panel.add(new JTextField());
+
+		panel.add(new JLabel("Telefone"));
+		panel.add(new JTextField());
+		
+
+		panel.add(new JLabel("CPF"));
+		panel.add(new JTextField());
+		
+		
+		
+		return panel;
+	}
+	
+	public static void main(String[] args) {
+		TesteLayout layout = new TesteLayout();
+		
+	}
+}

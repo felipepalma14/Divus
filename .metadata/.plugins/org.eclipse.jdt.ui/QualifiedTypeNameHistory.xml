@@ -10,6 +10,15 @@
 <fullyQualifiedTypeName name="br.com.divus.aj3.colletions.map.Professor"/>
 <fullyQualifiedTypeName name="br.com.divus.aj3.labs.lab03_07.beans.Cliente"/>
 <fullyQualifiedTypeName name="br.com.divus.aj3.conexao.ConexaoUtil"/>
-<fullyQualifiedTypeName name="java.sql.Connection"/>
 <fullyQualifiedTypeName name="java.sql.DriverManager"/>
+<fullyQualifiedTypeName name="java.util.ArrayList"/>
+<fullyQualifiedTypeName name="java.sql.ResultSet"/>
+<fullyQualifiedTypeName name="br.com.divus.dao.ClienteDAO"/>
+<fullyQualifiedTypeName name="java.util.List"/>
+<fullyQualifiedTypeName name="br.com.divus.model.Cliente"/>
+<fullyQualifiedTypeName name="java.sql.PreparedStatement"/>
+<fullyQualifiedTypeName name="br.com.divus.conexao.ConexaoUtil"/>
+<fullyQualifiedTypeName name="java.sql.Connection"/>
+<fullyQualifiedTypeName name="java.sql.Statement"/>
+<fullyQualifiedTypeName name="br.com.divus.aj3.labs.lab03_09.util.ConnectionManager"/>
 </qualifiedTypeNameHistroy>

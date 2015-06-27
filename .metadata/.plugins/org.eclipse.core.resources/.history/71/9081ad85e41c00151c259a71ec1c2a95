@@ -1,0 +1,37 @@
+package br.com.divus.aj4.swing;
+
+import java.awt.FlowLayout;
+
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JPanel;
+
+public class TesteLayout extends JFrame {
+	
+	public TesteLayout(){
+		setTitle("Teste com Layout");
+		setSize(250,250);
+		setDefaultCloseOperation(EXIT_ON_CLOSE);
+		JPanel panel = montarPainelBotoes();
+		add(panel);
+		setVisible(true);
+	}
+	
+	public JPanel montarPainelBotoes(){
+		JPanel panel = new JPanel();
+		FlowLayout flow = new FlowLayout(FlowLayout.CENTER);//centralizar no layout 
+		panel.setLayout(flow);
+		//JButton btnSalvar = new JButton("Salvar");
+		//JButton btnCancelar = new JButton("Cancelar");
+		
+		panel.add(new JButton("Salvar"));
+		panel.add(new JButton("Cancelar"));
+		
+		return panel;
+	}
+	
+	public static void main(String[] args) {
+		TesteLayout layout = new TesteLayout();
+		
+	}
+}

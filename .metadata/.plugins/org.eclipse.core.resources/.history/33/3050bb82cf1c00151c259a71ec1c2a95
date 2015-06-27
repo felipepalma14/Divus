@@ -1,0 +1,26 @@
+package br.com.divus.generics;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import br.com.divus.model.Aluno;
+import br.com.divus.model.Cliente;
+
+public class TesteGerenerics {
+	// Trabalha com performance
+	// Evita generalizações
+	
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		IGerenericDAO daoCliente = new ClienteDAO();
+		AlunoDAO daoAluno = new AlunoDAO();
+		
+		Cliente cliente = new Cliente(2L,"Elder Granja","111.111.111-11");
+		Aluno aluno = new Aluno(1L,"Felipe Cunha");
+		
+		daoAluno.salvar(aluno);
+		daoCliente.salvar(cliente);
+
+	}
+
+}

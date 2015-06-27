@@ -1,0 +1,20 @@
+package br.com.divus.aj4.swing;
+
+import javax.swing.JFrame;
+
+public class OlaMundoSwing extends JFrame {
+	
+	public OlaMundoSwing(){
+		setTitle("Minha primeira janela top na balada");
+		setSize(250,250);
+		setVisible(true);
+		setDefaultCloseOperation(EXIT_ON_CLOSE);
+	}
+	//Start a aplicação
+	public static void main(String[] args) {
+		// main deve ser externo as classes frames
+		
+		OlaMundoSwing tela = new OlaMundoSwing();
+	}
+
+}

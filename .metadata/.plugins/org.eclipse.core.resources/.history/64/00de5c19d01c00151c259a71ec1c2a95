@@ -1,0 +1,9 @@
+package br.com.divus.generics;
+
+import br.com.divus.model.Cliente;
+
+public interface IGerenericDAO {
+	
+	public abstract void salvar(Cliente cliente);
+
+}
