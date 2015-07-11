@@ -1,0 +1,126 @@
+package br.com.divus.aj4.arquivos;
+
+import java.io.BufferedInputStream;
+import java.io.BufferedOutputStream;
+import java.io.DataInputStream;
+import java.io.DataOutputStream;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.ObjectOutputStream;
+
+public class TesteGravadorArquivos {
+	/*
+	 * Gravar dados em arquivo txt
+	 */
+	public static void main(String[] args) throws IOException {
+		//gravadorDeArquivo();
+		//leitorArquivoFileInput();
+		
+		//gravadorArquivoDataOutPut();
+		
+		
+		//leitorArquivosDataInput();
+		
+		FileOutputStream out = new FileOutputStream("carro.ser");
+		
+		//classe responsavel por serializer objetos
+		ObjectOutputStream objectOutput = new ObjectOutputStream(out);
+		
+		Carro c = new Carro("STP WAY","Renalt","2132432vd");
+		
+		objectOutput.writeObject(c);
+		
+		objectOutput.close();
+		
+		System.out.println("Objeto serializado com sucesso!!!");
+		
+		
+	}
+
+	public static void leitorArquivosDataInput() throws FileNotFoundException,
+			IOException {
+		FileInputStream in = new FileInputStream("arquivo.txt");
+		
+		BufferedInputStream bufferedIn = new BufferedInputStream(in,1024);
+		
+		//Guarda dados na memoria ate completar sua capacidade
+		
+		DataInputStream dataInput = new DataInputStream(bufferedIn);
+		/*
+		 * DataInput le apenas dados tipados como primitivos
+		 * se a origem for um arquivo , precisa passa no construtor do DataInputStream
+		 * uma variavel de referencia do tipo FileInputStream 
+		 */
+		
+		String nome = dataInput.readUTF();
+		double salario = dataInput.readDouble();
+		boolean souRico = dataInput.readBoolean();
+		char sexo = dataInput.readChar();
+		
+		
+		System.out.printf("%s com salario de %.2f sou rico? " + "%b do sexo %c",nome,
+				salario,souRico,sexo);
+		
+		dataInput.close();
+		in.close();
+	}
+
+	public static void gravadorArquivoDataOutPut()
+			throws FileNotFoundException, IOException {
+		String nome = "Eu mesmo";
+		double salario = 2000d;
+		boolean souRico = false;
+		char sexo = 'M';
+		
+		//abre o arquivp para stream de bytes
+		FileOutputStream out = new FileOutputStream("arquivo.txt");
+		
+		// bufferiza os dados do arquivo para consumir menos recursos
+		BufferedOutputStream bufferedOut = new BufferedOutputStream(out,1024);
+		
+		DataOutputStream dataOutPut = new DataOutputStream(bufferedOut);
+		
+		dataOutPut.writeUTF(nome);
+		dataOutPut.writeDouble(salario);
+		dataOutPut.writeBoolean(souRico);
+		dataOutPut.writeChar(sexo);
+		
+		// forca a saida dos dados que estiverem na memoria
+		bufferedOut.flush();//Lanca tudo que estiver no buffer
+		
+		dataOutPut.close();
+		out.close();
+	}
+
+	public static void leitorArquivoFileInput() throws FileNotFoundException,
+			IOException {
+		FileInputStream in = new FileInputStream("arquivo.txt");//abre o arquivo
+		// quando chega ao final do arquivo ele retorna -1
+		
+		int dadoLido = in.read();
+		while (dadoLido != -1){
+			//InputStream trabalha com bytes, deve fazer o cast
+			
+			System.out.println((byte) dadoLido);
+			
+			dadoLido = in.read();
+			//ler o proximo dados para verificar se eh diferente de -1
+		}
+		in.close();
+	}
+
+	private static void gravadorDeArquivo() throws FileNotFoundException,
+			IOException {
+		byte[] bytes = {65,66,67,68};//Numeros da tabela ASCII sao gravados de modo traduzido ABCD
+		
+		FileOutputStream out = new FileOutputStream("arquivo.txt",true);//true, add os dados no final do arquivo
+		for(byte b: bytes){
+			out.write(b);//apaga o arquivo anterios
+		}
+		out.close();
+		System.out.println("Dados gravados com sucesso!");
+	}
+
+}

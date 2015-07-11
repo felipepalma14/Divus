@@ -1,0 +1,92 @@
+package br.com.divus.aj4.arquivos;
+
+import java.io.DataInputStream;
+import java.io.DataOutputStream;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+
+public class TesteGravadorArquivos {
+	/*
+	 * Gravar dados em arquivo txt
+	 */
+	public static void main(String[] args) throws IOException {
+		//gravadorDeArquivo();
+		//leitorArquivoFileInput();
+		
+		//gravadorArquivoDataOutPut();
+		
+		FileInputStream in = new FileInputStream("arquivo.txt");
+		DataInputStream dataInput = new DataInputStream(in);
+		/*
+		 * DataInput le apenas dados tipados como primitivos
+		 * se a origem for um arquivo , precisa passa no construtor do DataInputStream
+		 * uma variavel de referencia do tipo FileInputStream 
+		 */
+		
+		String nome = dataInput.readUTF();
+		double salario = dataInput.readDouble();
+		boolean souRico = dataInput.readBoolean();
+		char sexo = dataInput.readChar();
+		
+		
+		System.out.printf("%s com salario de %.2f sou rico? " + "%b do sexo %c",nome,
+				salario,souRico,sexo);
+		
+		dataInput.close();
+		in.close();
+		
+		
+		
+	}
+
+	public static void gravadorArquivoDataOutPut()
+			throws FileNotFoundException, IOException {
+		String nome = "Eu mesmo";
+		double salario = 2000d;
+		boolean souRico = false;
+		char sexo = 'M';
+		
+		FileOutputStream out = new FileOutputStream("arquivo.txt");
+		DataOutputStream dataOutPut = new DataOutputStream(out);
+		
+		dataOutPut.writeUTF(nome);
+		dataOutPut.writeDouble(salario);
+		dataOutPut.writeBoolean(souRico);
+		dataOutPut.writeChar(sexo);
+		
+		dataOutPut.close();
+		out.close();
+	}
+
+	public static void leitorArquivoFileInput() throws FileNotFoundException,
+			IOException {
+		FileInputStream in = new FileInputStream("arquivo.txt");//abre o arquivo
+		// quando chega ao final do arquivo ele retorna -1
+		
+		int dadoLido = in.read();
+		while (dadoLido != -1){
+			//InputStream trabalha com bytes, deve fazer o cast
+			
+			System.out.println((byte) dadoLido);
+			
+			dadoLido = in.read();
+			//ler o proximo dados para verificar se eh diferente de -1
+		}
+		in.close();
+	}
+
+	private static void gravadorDeArquivo() throws FileNotFoundException,
+			IOException {
+		byte[] bytes = {65,66,67,68};//Numeros da tabela ASCII sao gravados de modo traduzido ABCD
+		
+		FileOutputStream out = new FileOutputStream("arquivo.txt",true);//true, add os dados no final do arquivo
+		for(byte b: bytes){
+			out.write(b);//apaga o arquivo anterios
+		}
+		out.close();
+		System.out.println("Dados gravados com sucesso!");
+	}
+
+}

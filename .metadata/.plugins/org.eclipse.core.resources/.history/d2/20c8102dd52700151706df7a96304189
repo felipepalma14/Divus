@@ -1,0 +1,21 @@
+package br.com.divus.aj4.arquivos;
+
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+
+public class TesteGravadorArquivos {
+
+	public static void main(String[] args) throws IOException {
+		// TODO Auto-generated method stub
+		byte[] bytes = {65,66,67,68};
+		
+		FileOutputStream out = new FileOutputStream("arquivo.txt");
+		for(byte b: bytes){
+			out.write(b);
+		}
+		out.close();
+		System.out.println("Dados gravados com sucesso");
+	}
+
+}

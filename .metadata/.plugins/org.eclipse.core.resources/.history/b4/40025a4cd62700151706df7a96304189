@@ -1,0 +1,39 @@
+package br.com.divus.aj4.arquivos;
+
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+
+public class TesteGravadorArquivos {
+	/*
+	 * Gravar dados em arquivo txt
+	 */
+	public static void main(String[] args) throws IOException {
+		// TODO Auto-generated method stub
+		//gravadorDeArquivo();
+		
+		FileInputStream in = new FileInputStream("arquivo.txt");
+		// quando chega ao final do arquivo ele retorna -1
+		
+		int dadoLido = in.read();
+		while (dadoLido != -1){
+			byte b = (byte) dadoLido;
+			System.out.println(dadoLido);
+			dadoLido = in.read();
+		}
+	}
+
+	private static void gravadorDeArquivo() throws FileNotFoundException,
+			IOException {
+		byte[] bytes = {65,66,67,68};//Numeros da tabela ASCII sao gravados de modo traduzido ABCD
+		
+		FileOutputStream out = new FileOutputStream("arquivo.txt");
+		for(byte b: bytes){
+			out.write(b);
+		}
+		out.close();
+		System.out.println("Dados gravados com sucesso!");
+	}
+
+}

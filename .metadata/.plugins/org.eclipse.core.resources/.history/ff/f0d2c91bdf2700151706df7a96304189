@@ -1,0 +1,45 @@
+package br.com.divus.aj4.arquivos;
+
+import java.io.Serializable;
+
+public class Carro implements Serializable {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	private String nome;
+	private String marca;
+    private String chassi;
+    
+    
+	public Carro() {
+		
+	}
+	public Carro(String nome, String marca, String chassi) {
+		super();
+		this.nome = nome;
+		this.marca = marca;
+		this.chassi = chassi;
+	}
+	public String getNome() {
+		return nome;
+	}
+	public void setNome(String nome) {
+		this.nome = nome;
+	}
+	public String getMarca() {
+		return marca;
+	}
+	public void setMarca(String marca) {
+		this.marca = marca;
+	}
+	public String getChassi() {
+		return chassi;
+	}
+	public void setChassi(String chassi) {
+		this.chassi = chassi;
+	}
+    
+    
+    
+}

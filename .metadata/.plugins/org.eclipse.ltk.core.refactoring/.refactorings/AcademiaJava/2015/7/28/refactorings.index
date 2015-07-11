@@ -1,3 +1,14 @@
 1436617526190	Delete element
 1436617544364	Delete elements
 1436617614002	Rename package 'br.com.divus.aj4.labs.lab01_02.aj4lab01_05.br.com.globalcode'
+1436623082371	Extract method 'gravadorDeArquivo'
+1436623833745	Extract method 'leitorArquivoFileInput'
+1436624931423	Extract method 'gravadorArquivoDataOutPut'
+1436627144154	Extract method 'leitorArquivosDataInput'
+1436627441450	Extract method 'gravadorObjetosArquivos'
+1436628377167	Delete elements
+1436628404028	Rename package 'br.com.divus.aj4.labs.aj4lab02_01.br.com.globalcode'
+1436628838359	Delete element
+1436629860451	Delete element
+1436630008866	Delete element
+1436630072104	Delete element
