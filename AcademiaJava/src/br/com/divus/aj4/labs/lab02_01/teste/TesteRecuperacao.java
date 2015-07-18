@@ -9,7 +9,6 @@ package br.com.divus.aj4.labs.lab02_01.teste;
 
 
 import java.io.FileInputStream;
-import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 

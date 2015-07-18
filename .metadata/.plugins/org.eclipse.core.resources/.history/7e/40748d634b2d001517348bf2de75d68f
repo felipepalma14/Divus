@@ -1,0 +1,29 @@
+package br.com.divus.aj4.arquivos;
+
+import java.io.File;
+import java.io.IOException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
+public class TesteFile {
+	public static void main(String[] args) throws IOException {
+		File file = new File("arquivo2.txt");
+		
+		System.out.println("Criando arquivo: " +  file.createNewFile());
+		System.out.println("O arquivo existe? " + file.exists());
+		System.out.println("Modo de leitura ativado? " + file.canRead());
+		System.out.println("O arquivo esta oculto" + file.isHidden());
+		System.out.println("Diretorio" + file.isDirectory());
+		System.out.println("é um arquivo: " + file.isFile());
+		System.out.println("Tamanho? " + file.length());
+		System.out.println("Data de modificacao" + file.lastModified());
+		
+		//System.out.println("Criar diretorio" + file.mkdir());
+		
+		SimpleDateFormat data = new SimpleDateFormat("d/m/Y");
+		System.out.println(data.format(file.lastModified()));
+		
+		
+		
+	}
+}

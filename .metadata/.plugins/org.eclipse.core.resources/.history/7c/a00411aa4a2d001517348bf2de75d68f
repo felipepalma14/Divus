@@ -1,0 +1,14 @@
+package br.com.divus.aj4.arquivos;
+
+import java.io.File;
+import java.io.IOException;
+
+public class TesteFile {
+	public static void main(String[] args) throws IOException {
+		File file = new File("arquivo.txt");
+		
+		System.out.println("Criando arquivo: " file.createNewFile());
+		System.out.println("O arquivo existe? " file.exists());
+		System.out.println();
+	}
+}
