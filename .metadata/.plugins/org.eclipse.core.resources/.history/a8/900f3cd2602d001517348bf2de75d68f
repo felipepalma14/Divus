@@ -1,0 +1,44 @@
+package br.com.divus.aj4.arquivos;
+
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.IOException;
+
+import jdk.internal.jfr.events.FileWriteEvent;
+
+public class TesteReaderWriter {
+	public static void main(String[] args) throws IOException {
+		
+		File file = new File("arquivo.txt");
+		
+		leitor(file);
+
+		File newFile = new File("arquivoEscrita.txt");
+		newFile.createNewFile();
+		
+		FileWriter fileWriter = new FileWriter(newFile);
+		BufferedWriter bw = new BufferedWriter(fileWriter);
+		
+		bw.write("Felipe Palma de Oliveira Cunha");
+		bw.close();
+	}
+
+	public static void  leitor(File file) throws FileNotFoundException,IOException {
+		
+		FileReader reader = new FileReader(file);
+	
+		BufferedReader buff = new BufferedReader(reader,2048);
+		
+		String linha;
+		
+		while ((linha = buff.readLine()) != null) {
+			System.out.println(linha);
+		}
+		buff.close();
+	}
+
+}

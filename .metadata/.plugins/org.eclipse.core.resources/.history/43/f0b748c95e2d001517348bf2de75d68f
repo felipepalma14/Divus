@@ -1,0 +1,5 @@
+package br.com.divus.aj4.arquivos;
+
+public class TesteReaderWriter {
+
+}

@@ -3,3 +3,5 @@
 1437227274176	Rename package 'br.com.divus.aj4.labs.aj4lab02_02'
 1437229299905	Delete element
 1437231260263	Delete element
+1437232562751	Extract method 'leitor'
+1437233776674	Extract method 'escreverArquivo'

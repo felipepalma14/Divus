@@ -1,0 +1,84 @@
+package br.com.divus.aj4.arquivos;
+
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.IOException;
+
+
+public class TesteReaderWriter {
+	public static void main(String[] args) throws IOException {
+		
+		File file = new File("arquivo.txt");
+		File newFile = new File("arquivoEscrita.txt");
+		
+		leitor(file);
+
+		System.out.println("Escrevendo no arquivo\n");
+		escreverArquivo(newFile,file);
+		System.out.println("Escrita finalizada");
+		
+		leitor(newFile);
+	}
+
+	public static void escreverArquivo(File newFile, File oldFile)
+			throws IOException, FileNotFoundException {
+
+		newFile.createNewFile();
+
+		// Prepara o arquivo para escrita
+		FileWriter fileWriter = new FileWriter(newFile);
+		// otimiza a escrita
+		BufferedWriter bw = new BufferedWriter(fileWriter);
+
+		// bw.write("Felipe Palma de Oliveira Cunha");
+
+		FileReader leitor = new FileReader(oldFile);
+		BufferedReader buff = new BufferedReader(leitor, 2048);
+
+		/*
+		 * Escrevendo de um arquivo para outro
+		 */
+
+		String linha;
+		while ((linha = buff.readLine()) != null) {
+			//bw.write(linha);
+			//bw.newLine();// pula uma linha
+			bufferiza
+		}
+
+		buff.close();
+
+		bw.flush();// elimina todos os dados do buffer usado apenas para escrita
+
+		bw.close();
+
+		// leitor(newFile);
+	}
+
+	public static void leitor(File file) throws FileNotFoundException,
+			IOException {
+
+		FileReader reader = new FileReader(file);
+
+		BufferedReader buff = new BufferedReader(reader, 2048);
+
+		String linha;
+		System.out.println("Lendo o Arquivo .. \n");
+		while ((linha = buff.readLine()) != null) {
+			System.out.println(linha);
+		}
+		buff.close();
+
+		System.out.println("\nLeitura finalizada.\n");
+	}
+	
+	public static void bufferizarCopiar(String linha,BufferedWriter bw) throws IOException{
+		bw.write(linha);
+		bw.newLine();
+	}
+
+}
