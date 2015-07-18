@@ -1,0 +1,8 @@
+package br.com.projecto;
+
+public class Funcionario extends Pessoa{
+	Long id;
+	String matricula;
+	
+
+}
