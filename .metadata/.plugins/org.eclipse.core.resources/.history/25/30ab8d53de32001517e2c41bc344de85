@@ -1,0 +1,109 @@
+package br.com.divus.aj4.threads;
+
+import java.awt.BorderLayout;
+import java.awt.FlowLayout;
+import java.awt.GridLayout;
+import java.awt.Label;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
+import java.lang.reflect.InvocationTargetException;
+
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.JTextField;
+import javax.swing.SwingUtilities;
+
+
+
+public class TesteSwingThread extends JFrame{
+	private JLabel label = new JLabel("Esperando");	
+	public TesteSwingThread() {
+		// TODO Auto-generated constructor stub
+		setDefaultCloseOperation(EXIT_ON_CLOSE);
+		add(panelForm(),BorderLayout.CENTER);
+		add(panelBotoes(),BorderLayout.SOUTH);
+		add(label,BorderLayout.NORTH);
+		setVisible(true);
+		setSize(250,200);
+		setLocationRelativeTo(null);//centralizar
+		
+		
+		
+	}
+	
+	public JPanel panelForm(){
+		JPanel panel = new JPanel();
+		panel.setLayout(new GridLayout(4,1));
+		panel.add(new JLabel("Nome"));
+		panel.add(new JTextField());
+		panel.add(new JLabel("Telefone"));
+		panel.add(new JTextField());
+		
+		return panel;
+	}
+	
+	public JPanel panelBotoes(){
+		JPanel panel = new JPanel();
+		panel.setLayout(new FlowLayout(FlowLayout.CENTER));
+		JButton executar = new JButton("Executar");
+		
+		executar.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				ProcessamentoDemorado p = new ProcessamentoDemorado();
+				Thread t1 = new Thread(p);
+				t1.start();
+			}
+		});
+		
+		JButton cancelar = new JButton("Cancelar");
+		
+		panel.add(executar);
+		panel.add(cancelar);
+		
+		
+		return panel;
+	}
+	
+	class ProcessamentoDemorado implements Runnable{
+		@Override
+		public void run() {
+			System.out.println("Executando: "+
+					Thread.currentThread().getName());
+			try {
+				Thread.sleep(5000);
+				/// label.setText("Processamento Concluido fora do EDT"); // esse eh o modo errado
+				Thread.sleep(2000);
+				try {
+					// esse eh o modo correto
+					//Assume a responsabilidade do EDT, gerenciador de Eventos
+					SwingUtilities.invokeAndWait(new Runnable() {
+						
+						@Override
+						public void run() {
+							label.setText("Processamento Concluido");
+						}
+					});
+					
+				} catch (InvocationTargetException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+			} catch (InterruptedException e1) {
+				// TODO Auto-generated catch block
+				e1.printStackTrace();
+			}
+				
+		}
+	}
+	
+	public static void main(String[] args) {
+		TesteSwingThread t = new TesteSwingThread();
+	}
+	
+	
+	
+
+}

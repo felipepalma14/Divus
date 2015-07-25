@@ -1,0 +1,34 @@
+package br.com.divus.aj4.threads;
+
+import java.awt.GridLayout;
+import java.awt.Label;
+
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.JTextField;
+
+public class TesteSwingThread extends JFrame{
+	
+	public TesteSwingThread() {
+		// TODO Auto-generated constructor stub
+		setDefaultCloseOperation(EXIT_ON_CLOSE);
+		setVisible(true);
+		setSize(200,200);
+		setLocationRelativeTo(null);//centralizar
+		
+	}
+	
+	public JPanel panelBotoes(){
+		JPanel panel = new JPanel();
+		panel.setLayout(new GridLayout(4,1));
+		panel.add(new JLabel("Nome"));
+		panel.add(new JTextField());
+		panel.add(new JLabel("Telefone"));
+		panel.add(new JTextField());
+	}
+	public static void main(String[] args) {
+		TesteSwingThread t = new TesteSwingThread();
+	}
+
+}

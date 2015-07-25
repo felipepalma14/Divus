@@ -1,0 +1,16 @@
+package br.com.divus.aj4.threads;
+
+import javax.swing.JFrame;
+import javax.swing.JPanel;
+
+public class TesteSwingThread extends JFrame{
+	
+	public TesteSwingThread() {
+		// TODO Auto-generated constructor stub
+	}
+	
+	public static void main(String[] args) {
+		TesteSwingThread t = new TesteSwingThread();
+	}
+
+}

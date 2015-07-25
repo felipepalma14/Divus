@@ -1,0 +1,19 @@
+package br.com.divus.aj4.threads;
+
+
+class Conta{
+	private int saldo = 50;
+	
+	public int getSaldo(){
+		return saldo;
+	}
+	
+	public void saque(int valor){
+		this.saldo-= saldo;
+	}
+	
+}
+
+public class TesteContaThread {
+
+}

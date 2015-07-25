@@ -1,0 +1,47 @@
+package br.com.divus.aj4.threads;
+
+
+class Conta{
+	private int saldo = 50;
+	
+	public int getSaldo(){
+		return this.saldo;
+	}
+	
+	public void saque(int valor){
+		this.saldo-= valor;
+	}
+	
+}
+
+public class TesteContaThread implements Runnable {
+	private Conta conta = new Conta();
+	
+	
+	private void realizarSaque(int valor){
+		String nomeThread = Thread.currentThread().getName();
+		if(conta.getSaldo() >= valor){
+			System.out.println(nomeThread
+					+ " Esta indo efetuar o saque!!! ");
+			
+			try {
+				Thread.sleep(500);
+			} catch (InterruptedException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			
+			conta.saque(valor);
+			System.out.println(nomeThread +
+					" Terminou o saque. Saldo: "+
+					conta.getSaldo());
+		}else{
+			System.out.println("Saldo indisponivel!!! " + nomeThread);
+		}
+		
+		
+		
+	}
+	
+	
+}

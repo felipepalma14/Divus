@@ -1,0 +1,69 @@
+package br.com.divus.aj4.threads;
+
+import com.sun.swing.internal.plaf.synth.resources.synth;
+
+
+class Conta{
+	private int saldo = 50;
+	
+	public int getSaldo(){
+		return this.saldo;
+	}
+	
+	public void saque(int valor){
+		this.saldo-= valor;
+	}
+	
+}
+
+public class TesteContaThread implements Runnable {
+	private  Conta conta = new Conta();
+	
+	
+	private synchronized void realizarSaque(int valor){
+		String nomeThread = Thread.currentThread().getName();
+		if(conta.getSaldo() >= valor){
+			System.out.println(nomeThread
+					+ " Esta indo efetuar o saque!!! ");
+			
+			try {
+				Thread.sleep(500);
+			} catch (InterruptedException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			
+			conta.saque(valor);
+			System.out.println(nomeThread +
+					" Terminou o saque. Saldo: "+
+					conta.getSaldo());
+		}else{
+			System.out.println("Saldo indisponivel!!! " + nomeThread);
+		}
+		
+		
+		
+	}
+
+	@Override
+	public void run() {
+		for (int i = 0; i < 5; i++) {
+			realizarSaque(10);
+			if(conta.getSaldo() < 0){
+				System.out.println("Puts perdi meu emprego!!!");
+			}
+		}
+	}
+	
+	public static void main(String[] args) {
+		TesteContaThread programa = new TesteContaThread();
+		Thread t1 = new Thread(programa,"Felipe");
+		Thread t2 = new Thread(programa,"Rayssa");
+		
+		t1.start();
+		t2.start();
+		
+	}
+	
+	
+}

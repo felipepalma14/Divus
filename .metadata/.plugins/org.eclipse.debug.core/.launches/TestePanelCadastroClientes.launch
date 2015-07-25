@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<launchConfiguration type="org.eclipse.jdt.launching.localJavaApplication">
+<listAttribute key="org.eclipse.debug.core.MAPPED_RESOURCE_PATHS">
+<listEntry value="/AcademiaJava/src/br/com/divus/aj4/labs/lab03_01/br/com/globalcode/aj4/gui/TestePanelCadastroClientes.java"/>
+</listAttribute>
+<listAttribute key="org.eclipse.debug.core.MAPPED_RESOURCE_TYPES">
+<listEntry value="1"/>
+</listAttribute>
+<stringAttribute key="org.eclipse.jdt.launching.MAIN_TYPE" value="br.com.divus.aj4.labs.lab03_01.br.com.globalcode.aj4.gui.TestePanelCadastroClientes"/>
+<stringAttribute key="org.eclipse.jdt.launching.PROJECT_ATTR" value="AcademiaJava"/>
+</launchConfiguration>
