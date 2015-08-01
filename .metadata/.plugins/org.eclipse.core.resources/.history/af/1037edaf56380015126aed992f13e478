@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<meta charset="UTF-8">
+<title>My First Page!!!</title>
+</head>
+
+<!-- Configuração -->
+
+<body>
+	<!-- h1 >> para titulo -->
+	<h1>Pagina Inicial</h1>
+	
+	<form action="www.dontpad.com/aj35" method="POST">
+		nome: <input type="text" name = "nome">
+		password: <input type="password" name = "password">
+		<button type="submit">lol</button>
+		
+	</form>
+	
+</body>
+</html>

@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<meta charset="UTF-8">
+<title>Cadastrar Cliente</title>
+</head>
+
+<body>
+	<h1>Cadastrar Cliente</h1>
+	<form action="">
+		<label>nome</label>
+		<input type="text" name = "nome">
+		<label>telefone</label>
+		<input type="text">
+	</form>
+
+</body>
+</html>

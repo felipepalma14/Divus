@@ -1,0 +1,28 @@
+package br.com.divus.servlet;
+
+import java.io.IOException;
+
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+import br.com.divus.model.Cliente;
+
+@WebServlet (urlPatterns="/listarclienteservlet")
+
+public class ListarClienteServlet extends HttpServlet{
+
+	@Override
+	protected void doGet(HttpServletRequest req, HttpServletResponse resp)
+			throws ServletException, IOException {
+		System.out.println("Entrando no servlet Listagem");
+		
+		Cliente cli1 = new Cliente("Ana","111","000");
+		Cliente cli2 = new Cliente("Ana Clara","122","111");
+		Cliente cli1 = new Cliente("Ana Julia","133","222");
+		Cliente cli1 = new Cliente("Ana Carla","144","333");
+		
+	}
+}

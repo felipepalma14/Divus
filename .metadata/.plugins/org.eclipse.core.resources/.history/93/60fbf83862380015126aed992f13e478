@@ -1,0 +1,45 @@
+package br.com.divus.servlet;
+
+import java.io.IOException;
+
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+/*
+ * 1 - Add no eclipse o runtime enviromment para ele reconhecer onde esta o servidor
+ * 2 - add o tomcat na aba servers
+ * 3- crair um projeto dynamic web project e marcar generate web.xml
+ * 4 - criar os templates html na pasta webcontent, fora das outras duas pasta web/meta-inf
+ * 5 - crair um servlet estendendo HttpServlet
+ * 6- add annotation @webservlet(urlPartterns="/<<nomeDaServlet>>")
+ * 7 - soabrescrever o metodo certo,doGet ou doPost de acordo com o que vc definiu
+ * no form method no html
+ * 8 - lembrar de colocar o nome dos inputs, pois eh atraves deles que pega a referencia
+ * do valor no servlet
+ * o botao que envia eh <input type ="submit">nao <button>
+ */
+
+
+/*
+ * urlpatterns = add na url raiz para acessar
+ */
+
+@WebServlet (urlPatterns="/cadastrarclienteservlet")
+public class CadastrarClienteServlet extends HttpServlet {
+	
+	
+	@Override
+	protected void doGet(HttpServletRequest req, HttpServletResponse resp)
+			throws ServletException, IOException {
+		System.out.println("Entrou no controller servlet!!!");
+		String nome = req.getParameter("nome");
+		String telefone = req.getParameter("telefone");
+		
+		System.out.println("nome: " + nome);
+		System.out.println("telefone: " + telefone);
+		
+	}
+}

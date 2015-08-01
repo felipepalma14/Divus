@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<meta charset="UTF-8">
+<title>Cadastrar Cliente</title>
+</head>
+
+<body>
+	<h1>Cadastrar Cliente</h1>
+	<form action="cadastrarcliente" method="GET">
+		<label>nome</label><br>
+		<input type="text" name = "nome"><br>
+		<label>telefone</label><br>
+		<input type="text" name = "telefone"><br/><br/>
+		<input type="submit" value="salvar">
+		<a href="index.html">
+			<input type="button" value="cancelar">
+		</a>
+	</form>
+
+</body>
+</html>
