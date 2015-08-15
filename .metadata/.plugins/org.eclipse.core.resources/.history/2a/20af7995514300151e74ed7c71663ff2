@@ -1,0 +1,45 @@
+package br.com.divus.servlet;
+
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
+
+import javax.servlet.RequestDispatcher;
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import javax.xml.ws.Dispatch;
+
+import br.com.divus.model.Cliente;
+
+@WebServlet (urlPatterns="/listarclienteservlet")
+
+public class ListarClienteServlet extends HttpServlet{
+
+	@Override
+	protected void doGet(HttpServletRequest req, HttpServletResponse resp)
+			throws ServletException, IOException {
+		System.out.println("Entrando no servlet Listagem");
+		
+		Cliente cli1 = new Cliente("Ana","111","000");
+		Cliente cli2 = new Cliente("Ana Clara","122","111");
+		Cliente cli3 = new Cliente("Ana Julia","133","222");
+		Cliente cli4 = new Cliente("Ana Carla","144","333");
+		
+		List<Cliente> clientes = new ArrayList<>();
+		
+		clientes.add(cli1);
+		clientes.add(cli2);
+		clientes.add(cli3);
+		clientes.add(cli4);
+		
+		
+		req.setAttribute("clientes", clientes);
+		
+		RequestDispatcher dispatcher = req.getRequestDispatcher("listarcliente.jsp");
+		dispatcher.forward(req, resp);
+		resp.sendRedirect("listarcliente.jsp");
+	}
+}

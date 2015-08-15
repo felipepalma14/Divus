@@ -8,6 +8,10 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import br.com.divus.dao.IClienteDAO;
+import br.com.divus.dao.ClienteDAO;
+import br.com.divus.model.Cliente;
+
 /*
  * 1 - Add no eclipse o runtime enviromment para ele reconhecer onde esta o servidor
  * 2 - add o tomcat na aba servers
@@ -37,9 +41,11 @@ public class CadastrarClienteServlet extends HttpServlet {
 		System.out.println("Entrou no controller servlet!!!");
 		String nome = req.getParameter("nome");
 		String telefone = req.getParameter("telefone");
+		String cpf = req.getParameter("cpf");
 		
-		System.out.println("nome: " + nome);
-		System.out.println("telefone: " + telefone);
+		Cliente cliente = new Cliente(nome,cpf,telefone);
+		IClienteDAO dao = new ClienteDAO();
+		dao.salvar(cliente);
 		
 		resp.sendRedirect("index.html");
 	}

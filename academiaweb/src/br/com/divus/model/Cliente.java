@@ -12,6 +12,13 @@ public class Cliente {
 	
 	public Cliente(String nome, String cpf,String telefone) {
 		super();
+		this.nome = nome;
+		this.cpf = cpf;
+		this.telefone = telefone;
+	}
+	
+	public Cliente(Long id,String nome, String cpf,String telefone) {
+		super();
 		this.id = id;
 		this.nome = nome;
 		this.cpf = cpf;

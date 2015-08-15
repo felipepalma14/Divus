@@ -1,0 +1,10 @@
+package br.com.divus.servlet;
+
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+
+@WebServlet (urlPatterns="/logarclienteservlet")
+public class LogarClienteServlet extends HttpServlet {
+	
+
+}
