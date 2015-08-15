@@ -26,23 +26,23 @@ public class CheckFilter implements Filter {
 		// TODO Auto-generated method stub
 		HttpServletRequest req = (HttpServletRequest) request;
 		HttpServletResponse resp = (HttpServletResponse) response;
-
-		String url = req.getRequestURI();
-		if (url.endsWith("login.html") || url.endsWith("logarclienteservlet")) {
+		
+				String url = req.getRequestURI();
+		if (url.endsWith("login.jsp") || url.endsWith("loginservlet")) {
 			chain.doFilter(request, response);
 			return;
 		} else {
 			if (req.getSession().getAttribute("usuario") != null) {
 				chain.doFilter(request, response);
 			} else {
-				resp.sendRedirect("login.html");
+				resp.sendRedirect("login.jsp");
 			}
 		}
 
 		System.out.println("entrou");
 
-		// chain.doFilter(request, response);// verifica o caminho percorrido do
-		// usuario autenticado via session
+		chain.doFilter(request, response);// verifica o caminho percorrido do
+											// usuario autenticado via session
 
 	}
 

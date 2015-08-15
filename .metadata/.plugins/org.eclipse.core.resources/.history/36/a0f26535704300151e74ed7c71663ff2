@@ -41,8 +41,8 @@ public class CheckFilter implements Filter {
 
 		System.out.println("entrou");
 
-		// chain.doFilter(request, response);// verifica o caminho percorrido do
-		// usuario autenticado via session
+		//chain.doFilter(request, response);// verifica o caminho percorrido do
+											// usuario autenticado via session
 
 	}
 
