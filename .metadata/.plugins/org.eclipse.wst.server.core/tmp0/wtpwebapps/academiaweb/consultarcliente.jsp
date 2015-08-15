@@ -21,7 +21,7 @@
 		<input type="text" name="telefone" value="${cliente.getTelefone()}"/><br/><br/>
 		
 		<input type="submit" value="Salvar"/>
-		<a href="index.html">
+		<a href="listarclienteservlet">
 			<input type="button" value="Cancelar">
 		</a>
 	</form>

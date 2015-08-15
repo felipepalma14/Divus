@@ -19,13 +19,11 @@ public class ConsultarClienteServlet extends HttpServlet {
 			throws ServletException, IOException {
 
 		String cpf = req.getParameter("cpf");
-		// Long id = Long.parseLong(req.getParameter("id"));
-		System.out.println(cpf);
+		//Long id = Long.parseLong(req.getParameter("id"));
 		Cliente c = new ClienteDAO().getClienteByCPF(cpf);
 
 		req.setAttribute("cliente", c);
 
-		System.out.println(c);
 		req.getRequestDispatcher("consultarcliente.jsp").forward(req, resp);
 	}
 

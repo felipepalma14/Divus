@@ -18,7 +18,7 @@ public class ClienteDAO implements IClienteDAO {
 	private final static String DELETE_CLIENTE = "DELETE FROM clientes WHERE cpf = '";
 	private final static String GET_ALL_CLIENTES = "SELECT * FROM clientes";
 	private final static String GET_CLIENTE_BY_CPF = "SELECT * FROM clientes WHERE cpf = ?";
-	private final static String UPDATE_CLIENTE = "UPDATE clientes SET nome = ?, cpf = ?, telefone = ? WHERE id =?";
+	private final static String UPDATE_CLIENTE = "update clientes set nome = ?, cpf = ?, telefone = ? where id =?";
 
 	public void createTable() {
 		Connection conn = null;
@@ -59,7 +59,7 @@ public class ClienteDAO implements IClienteDAO {
 	 * br.com.globalcode.aj4.dao.ClientesDAO#salvar(br.com.globalcode.beans.
 	 * Cliente)
 	 */
-
+	
 	public void salvar(Cliente cliente) {
 		System.out.println(cliente);
 		if (!cliente.equals(getClienteByCPF(cliente.getCpf()))) {
@@ -79,7 +79,7 @@ public class ClienteDAO implements IClienteDAO {
 			}
 		}
 	}
-
+	
 	public void atualizar(Cliente cliente) {
 		System.out.println(cliente);
 		Connection conn = null;
@@ -90,14 +90,13 @@ public class ClienteDAO implements IClienteDAO {
 			stmt.setString(1, cliente.getNome());
 			stmt.setString(2, cliente.getCpf());
 			stmt.setString(3, cliente.getTelefone());
-			stmt.setLong(4, cliente.getId());
 			stmt.executeUpdate();
 		} catch (SQLException e) {
 			e.printStackTrace();
 		} finally {
 			ConnectionManager.closeAll(conn, stmt);
 		}
-
+		
 	}
 
 	/*

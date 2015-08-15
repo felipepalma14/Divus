@@ -17,15 +17,13 @@ public class ConsultarClienteServlet extends HttpServlet {
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp)
 			throws ServletException, IOException {
-
+		
 		String cpf = req.getParameter("cpf");
-		// Long id = Long.parseLong(req.getParameter("id"));
-		System.out.println(cpf);
+		//Long id = Long.parseLong(req.getParameter("id"));
 		Cliente c = new ClienteDAO().getClienteByCPF(cpf);
 
 		req.setAttribute("cliente", c);
 
-		System.out.println(c);
 		req.getRequestDispatcher("consultarcliente.jsp").forward(req, resp);
 	}
 
@@ -35,13 +33,11 @@ public class ConsultarClienteServlet extends HttpServlet {
 
 		System.out.println("Entrou no consultar cliente servlet");
 		String nome = req.getParameter("nome");
-		String cpf = req.getParameter("cpf");
 		String telefone = req.getParameter("telefone");
-
+		String cpf = req.getParameter("cpf");
 		Long id = Long.parseLong(req.getParameter("id"));
 		Cliente cliente = new Cliente(id, nome, cpf, telefone);
-		new ClienteDAO().atualizar(cliente);
+		System.out.println("Salvando cliente " + cliente);
 
-		resp.sendRedirect("listarclienteservlet");
 	}
 }

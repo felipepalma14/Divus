@@ -23,7 +23,7 @@
 			<tr>
 				<td>${cliente.getId()}</td>
 				<td align='center'>${cliente.getNome()}</td>
-				<td align='center'><a href="consultarclienteservlet?cpf=${cliente.getCpf()}">${cliente.getCpf()}</a></td>
+				<td align='center'><a href="consultarclienteservlet?id=${cliente.getCpf()}">${cliente.getCpf()}</a></td>
 				<td align='center'>${cliente.getTelefone()}</td>
 			</tr>
 
