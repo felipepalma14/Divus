@@ -21,9 +21,18 @@
 		<input type="text" name="telefone" value="${cliente.getTelefone()}"/><br/><br/>
 		
 		<input type="submit" value="Salvar"/>
-		<a href="listarclienteservlet">
-			<input type="button" value="Cancelar">
-		</a>
 	</form>
+	
+	<!--  Separar os forms de salvar e excluir, a variavel action eh usada para distinguir as acoes POST -->
+	
+	<form method="POST" action="consultarclienteservlet?action=excluir">
+
+		<input type="hidden" name="cpf" value="${cliente.getCpf()}"/><br />
+		<input type="submit" value="Excluir"/>
+	</form>
+	
+	<a href="listarclienteservlet">
+		<input type="button" value="Cancelar">
+	</a>
 </body>
 </html>

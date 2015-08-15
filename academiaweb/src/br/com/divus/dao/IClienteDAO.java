@@ -13,6 +13,8 @@ public interface IClienteDAO {
 	 */
 	public abstract void salvar(Cliente cliente);
 
+	public abstract void atualizar(Cliente cliente);
+
 	/**
 	 * @param CPF
 	 *            do Cliente a ser excluido da fonte de dados em questao

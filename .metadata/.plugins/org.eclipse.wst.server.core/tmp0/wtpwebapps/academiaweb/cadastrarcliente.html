@@ -1,10 +1,18 @@
 <!DOCTYPE html>
 <html>
 <head>
+
 <meta charset="UTF-8">
+
+<link rel="stylesheet" type = "text/css"  href="resources/css/bootstrap.min.css"/>
+<link rel="stylesheet" type = "text/css"  href="resources/css/bootstrap-theme.min.css"/>
+<script type="text/javascript">src = "resources/js/bootstrap.min.js"</script>
+
 <title>Cadastro de cliente</title>
+
 </head>
 <body>
+<div class = "container">
 	<h1>Cadastro de cliente</h1>
 	<form method="GET" action="cadastrarclienteservlet">
 		<label>Nome</label><br />
@@ -15,10 +23,11 @@
 		
 		<label>Telefone</label><br />
 		<input type="text" name="telefone"/><br/><br/>
-		<input type="submit" value="Salvar"/>
+		<input  class = "btn btn-primary" type="submit" value="Salvar"/>
 		<a href="index.html">
-			<input type="button" value="Cancelar">
+			<input class = "btn btn-primary" type="button" value="Cancelar"/>
 		</a>
 	</form>
+</div>
 </body>
 </html>

@@ -6,12 +6,21 @@
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
+
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Listagem de clientes</title>
+
+<link rel="stylesheet" type = "text/css"  href="resources/css/bootstrap.min.css"/>
+<link rel="stylesheet" type = "text/css"  href="resources/css/bootstrap-theme.min.css"/>
+<script type="text/javascript">src = "resources/js/bootstrap.min.js"</script>
+
 </head>
+
 <body>
-	<table border="1">
+
+<div class = "container">
+	<table border="1" class="table table-striped table-hover table-condensed">
 		<tr>
 			<th>ID</th>
 			<th>Nome</th>
@@ -29,6 +38,7 @@
 
 		</c:forEach>
 	</table>
+</div>
 </body>
 </html>
 

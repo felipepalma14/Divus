@@ -1,0 +1,5 @@
+package br.com.divus.filter;
+
+public class CheckFilter {
+
+}

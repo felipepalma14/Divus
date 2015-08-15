@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Cadastro de cliente</title>
+</head>
+<body>
+	<h1>Cadastro de cliente</h1>
+	<form method="GET" action="cadastrarclienteservlet">
+		<label>Nome</label><br />
+		<input type="text" name="nome"/><br />
+		
+		<label>CPF</label><br />
+		<input type="text" name="cpf"/><br />
+		
+		<label>Telefone</label><br />
+		<input type="text" name="telefone"/><br/><br/>
+		<input type="submit" value="Salvar"/>
+		<a href="index.html">
+			<input type="button" value="Cancelar">
+		</a>
+	</form>
+</body>
+</html>

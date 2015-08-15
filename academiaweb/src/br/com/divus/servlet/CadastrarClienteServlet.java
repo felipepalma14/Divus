@@ -7,9 +7,10 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
-import br.com.divus.dao.IClienteDAO;
 import br.com.divus.dao.ClienteDAO;
+import br.com.divus.dao.IClienteDAO;
 import br.com.divus.model.Cliente;
 
 /*
@@ -26,27 +27,29 @@ import br.com.divus.model.Cliente;
  * o botao que envia eh <input type ="submit"> ou <button>
  */
 
-
 /*
  * urlpatterns = add na url raiz para acessar
  */
 
-@WebServlet (urlPatterns="/cadastrarclienteservlet")
+@WebServlet(urlPatterns = "/cadastrarclienteservlet")
 public class CadastrarClienteServlet extends HttpServlet {
-	
-	
+
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp)
 			throws ServletException, IOException {
-		System.out.println("Entrou no controller servlet!!!");
+		HttpSession session = req.getSession();
+		if (session.getAttribute("usuario") == null) {
+			resp.sendRedirect("login.html");
+			return;
+		}
 		String nome = req.getParameter("nome");
 		String telefone = req.getParameter("telefone");
 		String cpf = req.getParameter("cpf");
-		
-		Cliente cliente = new Cliente(nome,cpf,telefone);
+
+		Cliente cliente = new Cliente(nome, cpf, telefone);
 		IClienteDAO dao = new ClienteDAO();
 		dao.salvar(cliente);
-		
+
 		resp.sendRedirect("index.html");
 	}
 }

@@ -1,0 +1,5 @@
+package br.com.divus.servlet;
+
+public class LogoutServlet {
+
+}

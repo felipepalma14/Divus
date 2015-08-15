@@ -9,6 +9,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import br.com.divus.dao.ClienteDAO;
+import br.com.divus.dao.IClienteDAO;
 import br.com.divus.model.Cliente;
 
 @WebServlet(urlPatterns = "/consultarclienteservlet")
@@ -33,6 +34,13 @@ public class ConsultarClienteServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp)
 			throws ServletException, IOException {
 
+		IClienteDAO dao = new ClienteDAO();
+		String action = req.getParameter("action");
+		if ((action != null) && (action.equals("excluir"))) {
+			dao.excluir(req.getParameter("cpf"));
+			resp.sendRedirect("listarclienteservlet");
+			return;
+		}
 		System.out.println("Entrou no consultar cliente servlet");
 		String nome = req.getParameter("nome");
 		String cpf = req.getParameter("cpf");
@@ -40,7 +48,7 @@ public class ConsultarClienteServlet extends HttpServlet {
 
 		Long id = Long.parseLong(req.getParameter("id"));
 		Cliente cliente = new Cliente(id, nome, cpf, telefone);
-		new ClienteDAO().atualizar(cliente);
+		dao.atualizar(cliente);
 
 		resp.sendRedirect("listarclienteservlet");
 	}
